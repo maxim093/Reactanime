@@ -24,7 +24,7 @@ class Animes extends Component {
   render() {
     return (
       <div>
-        <h1 className="heading">Top 10 Animes</h1>
+        <h1 className="heading">Top Animes</h1>
         <div className="wrapper">
           {this.state.anime.map((anime) => (
             <Link key={anime._id} to={"/animes/" + anime._id}>
