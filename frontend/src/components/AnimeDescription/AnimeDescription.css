@@ -1,0 +1,14 @@
+.titleText {
+}
+
+.descriptionText {
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.descriptionWrapper {
+  border: 1px solid #000;
+  width: 80%;
+  margin: 0 auto;
+}
