@@ -6,8 +6,9 @@ class App extends Component {
   state = {
     anime: [
       {
-        id: null,
+        _id: null,
         title: null,
+       
       },
     ],
   };

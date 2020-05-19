@@ -1,22 +1,14 @@
 var express = require("express");
 var router = express.Router();
+const Animes = require("../models/anime")
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.json([
-    {
-      id: 1,
-      title: "My Hero Academia",
-    },
-    {
-      id: 2,
-      title: "Demon Slayer",
-    },
-    {
-      id: 3,
-      title: "Cowboy Beepop",
-    },
-  ]);
+
+router.get("/", async (req, res) => {
+  try {
+    const animes = await Animes.find();
+    res.json(animes);
+  } catch (err) {
+    res.json({ message: err });
+  }
 });
-
 module.exports = router;

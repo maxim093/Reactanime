@@ -13,12 +13,14 @@ var animeRouter = require("./routes/anime");
 
 var app = express();
 
-mongoose
-  .connect("mongodb://localhost:27017/testDB", { useNewUrlParser: true })
-  .then(() => console.log("DB Connected!"))
-  .catch((err) => {
+
+mongoose.connect(process.env.DB_CONNECTION, {
+    useNewUrlParser: true,
+})
+.then(() => console.log('DB Connected!'))
+.catch(err => {
     console.log("Connection Error: ", err.message);
-  });
+});
 
 app.use(logger("dev"));
 app.use(express.json());
