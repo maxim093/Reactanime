@@ -9,18 +9,18 @@ var mongoose = require("mongoose");
 require("dotenv/config");
 
 var indexRouter = require("./routes/index");
-var animeRouter = require("./routes/anime");
+var animesRouter = require("./routes/animes");
 
 var app = express();
 
-
-mongoose.connect(process.env.DB_CONNECTION, {
+mongoose
+  .connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
-})
-.then(() => console.log('DB Connected!'))
-.catch(err => {
+  })
+  .then(() => console.log("DB Connected!"))
+  .catch((err) => {
     console.log("Connection Error: ", err.message);
-});
+  });
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/anime", animeRouter);
+app.use("/animes", animesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

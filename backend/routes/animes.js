@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const Animes = require("../models/anime")
-
+const Animes = require("../models/animes");
 
 router.get("/", async (req, res) => {
   try {

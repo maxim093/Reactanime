@@ -1,32 +1,19 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+
+import Animes from "../src/components/Animes/Animes";
 
 import "./App.css";
 
 class App extends Component {
-  state = {
-    anime: [
-      {
-        _id: null,
-        title: null,
-       
-      },
-    ],
-  };
-
-  componentDidMount() {
-    fetch("/anime")
-      .then((res) => res.json())
-      .then((anime) => this.setState({ anime }));
-  }
-
   render() {
     return (
-      <div className="App">
-        <h1>Anime</h1>
-        {this.state.anime.map((anime) => (
-          <div key={anime.id}>{anime.title}</div>
-        ))}
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Redirect from="/" to="/animes" />
+          <Route path="/animes" render={(props) => <Animes {...props} />} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
