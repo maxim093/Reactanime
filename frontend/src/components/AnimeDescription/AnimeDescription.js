@@ -28,12 +28,11 @@ class animeDescription extends Component {
   render() {
     return (
       <div className="descriptionWrapper">
-        <div className="titleText">
-          <h2>{this.state.selectedAnime.title} </h2>
-        </div>
-        <div className="descriptionText">
-          <p>{this.state.selectedAnime.description}</p>
-        </div>
+        <h2 className="titleText">{this.state.selectedAnime.title} </h2>
+        <span className="releaseText">{this.state.selectedAnime.release}</span>
+        <p className="descriptionText">
+          {this.state.selectedAnime.description}
+        </p>
       </div>
     );
   }

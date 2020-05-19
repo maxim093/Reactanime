@@ -13,6 +13,11 @@ const AnimesSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  release: {
+    //should be date
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Animes", AnimesSchema);

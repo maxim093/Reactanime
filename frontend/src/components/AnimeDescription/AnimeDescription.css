@@ -1,4 +1,6 @@
 .titleText {
+  text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 .descriptionText {
