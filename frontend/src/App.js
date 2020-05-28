@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 import Animes from "../src/components/Animes/Animes";
 import AnimeDescription from "./components/AnimeDescription/AnimeDescription";

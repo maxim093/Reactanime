@@ -24,7 +24,17 @@ class animeDescription extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="buttonCon">
+          <button onClick={this.props.history.goBack} className="backButton">
+            Hier gehts Zurück
+          </button>
+        </div>
         <div className="descriptionWrapper">
+          <img
+            className="Cover"
+            src={this.state.selectedAnime.thumbnail}
+            alt="animeCover"
+          ></img>
           <h2 className="titleText">{this.state.selectedAnime.title} </h2>
           <span className="releaseText">
             {this.state.selectedAnime.release}
@@ -33,9 +43,7 @@ class animeDescription extends Component {
             {this.state.selectedAnime.description}
           </p>
         </div>
-        <div>
-          <button>Zurück</button>
-        </div>
+        <div></div>
       </React.Fragment>
     );
   }

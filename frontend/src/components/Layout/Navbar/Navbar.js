@@ -3,22 +3,59 @@ import { NavLink } from "react-router-dom";
 
 import "./Navbar.scss";
 
-const Navbar = () => (
-  <div className="nav">
-    <div className="logo">Ar</div>
+const Navbar = () => {
+  let show = false;
 
-    <ul className="navItems">
-      <NavLink to="/animes" className="navItem" activeClassName="active">
-        Meine Liste
+  const burgerMenuHandler = () => {
+    show === false ? createBurgerMenuCon() : removeBurgerMenuCon();
+  };
+
+  const removeBurgerMenuCon = () => {
+    const burgerMenuCon = document.querySelector(".burgerMenuCon");
+    console.log(burgerMenuCon);
+    burgerMenuCon.remove();
+    show = false;
+  };
+
+  const createBurgerMenuCon = () => {
+    const navBar = document.querySelector(".nav");
+    navBar.appendChild(document.createElement("div")).className =
+      "burgerMenuCon";
+
+    if (show == true) {
+      removeBurgerMenuCon();
+    } else {
+      document
+        .querySelector(".burgerMenuCon")
+        .insertAdjacentElement(
+          "afterend",
+          document.querySelector(".burgerMenu")
+        );
+    }
+    show = true;
+  };
+
+  return (
+    <div className="nav">
+      <NavLink to="/animes" className="logo">
+        Ar
       </NavLink>
-      <NavLink to="/animes/add" className="navItem" activeClassName="active">
-        Animes hinzufügen
-      </NavLink>
-      <NavLink to="/information" className="navItem" activeClassName="active">
-        Information
-      </NavLink>
-    </ul>
-  </div>
-);
+      <div onClick={burgerMenuHandler} className="burgerMenu">
+        <i className=" fas fa-bars fa-2x"></i>
+      </div>
+      <ul className="navItems">
+        <NavLink to="/animes" className="navItem" activeClassName="active">
+          Meine Liste
+        </NavLink>
+        <NavLink to="/animes/add" className="navItem" activeClassName="active">
+          Animes hinzufügen
+        </NavLink>
+        <NavLink to="/information" className="navItem" activeClassName="active">
+          Information
+        </NavLink>
+      </ul>
+    </div>
+  );
+};
 
 export default Navbar;
