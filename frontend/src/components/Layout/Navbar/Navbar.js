@@ -11,6 +11,7 @@ const Navbar = () => {
   };
 
   const removeBurgerMenuCon = () => {
+    // delete container for navigation links on mobile devices
     const burgerMenuCon = document.querySelector(".burgerMenuCon");
     console.log(burgerMenuCon);
     burgerMenuCon.remove();
@@ -18,13 +19,15 @@ const Navbar = () => {
   };
 
   const createBurgerMenuCon = () => {
+    // create dontainer for navigation links on mobile devices
     const navBar = document.querySelector(".nav");
     navBar.appendChild(document.createElement("div")).className =
       "burgerMenuCon";
 
-    if (show == true) {
+    if (show === true) {
       removeBurgerMenuCon();
     } else {
+      // move burgerMenu icon behind the navigation cContainer
       document
         .querySelector(".burgerMenuCon")
         .insertAdjacentElement(
