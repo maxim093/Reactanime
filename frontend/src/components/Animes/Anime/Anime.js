@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Anime.css";
+import "./Anime.scss";
 
 const anime = (props) => {
   return (

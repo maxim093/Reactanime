@@ -1,0 +1,32 @@
+@import "../../../index.scss";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  background-color: $primary-color;
+}
+
+.logo {
+  padding: 5px;
+  margin: 10px;
+  color: $secondary-color;
+  font-weight: 800;
+}
+
+.navItems {
+  display: flex;
+  margin: 10px;
+}
+
+.navItem {
+  list-style: none;
+  padding: 5px;
+  text-decoration: none;
+  color: $text-color;
+  font-weight: 800;
+}
+
+.active {
+  color: $secondary-color;
+}

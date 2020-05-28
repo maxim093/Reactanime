@@ -1,24 +1,20 @@
 import React, { Component } from "react";
 
-import "./AnimeDescription.css";
+import "./AnimeDescription.scss";
 
 class animeDescription extends Component {
   state = {
-    selectedAnime: {},
+    selectedAnime: [
+      {
+        _id: null,
+        title: null,
+        thumbnail: null,
+        description: null,
+        release: null,
+      },
+    ],
   };
   componentDidMount() {
-    // console.log(this.props.anime);
-    // console.log(this.props.match.params._id);
-    this.loadData();
-  }
-
-  componentDidUpdate() {
-    if (this.state.selectedAnime._id != this.props.match.params._id) {
-      this.loadData();
-    }
-  }
-
-  loadData() {
     const selectedAnime = this.props.anime.find(
       (x) => x._id === this.props.match.params._id
     );
@@ -27,13 +23,20 @@ class animeDescription extends Component {
 
   render() {
     return (
-      <div className="descriptionWrapper">
-        <h2 className="titleText">{this.state.selectedAnime.title} </h2>
-        <span className="releaseText">{this.state.selectedAnime.release}</span>
-        <p className="descriptionText">
-          {this.state.selectedAnime.description}
-        </p>
-      </div>
+      <React.Fragment>
+        <div className="descriptionWrapper">
+          <h2 className="titleText">{this.state.selectedAnime.title} </h2>
+          <span className="releaseText">
+            {this.state.selectedAnime.release}
+          </span>
+          <p className="descriptionText">
+            {this.state.selectedAnime.description}
+          </p>
+        </div>
+        <div>
+          <button>Zurück</button>
+        </div>
+      </React.Fragment>
     );
   }
 }
