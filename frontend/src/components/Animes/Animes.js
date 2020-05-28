@@ -7,7 +7,14 @@ class Animes extends Component {
   render() {
     return (
       <div>
-        <h1 className="heading">Meine Watchlist</h1>
+        <div className="headingCon">
+          <h1 className="heading">
+            Meine <span className="colorDecoration">Watchlist</span>
+          </h1>
+          <p className="pageInfo">
+            Hier kannst du deine aktuelle Watchlist ansehen
+          </p>
+        </div>
         <div className="wrapper">
           {this.props.anime.map((anime) => (
             <Link

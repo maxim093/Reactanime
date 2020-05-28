@@ -1,12 +1,30 @@
+@import "../../index.scss";
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
 }
 
 .heading {
-  padding: 12px;
   text-align: left;
   text-decoration: underline;
+  margin-bottom: 0;
+  font-size: 36px;
+}
+.headingCon {
+  padding: 25px 0 25px 30px;
+}
+
+.pageInfo {
+  text-align: left;
+  margin-top: 10px;
+  font-family: $font;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.colorDecoration {
+  color: $secondary-color;
+  text-transform: uppercase;
 }
