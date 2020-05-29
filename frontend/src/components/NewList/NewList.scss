@@ -1,0 +1,51 @@
+@import "../../index.scss";
+
+.newListCon {
+  border: 1.9px solid $primary-color;
+  margin: 15px;
+  padding: 15px;
+  box-shadow: 0 1.5em 2em -1em #999;
+  background-color: $primary-color;
+  color: $background-color;
+}
+
+.submitBtn {
+  letter-spacing: 1.25px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: $secondary-color;
+}
+
+.listHeading {
+  font-weight: 800;
+  padding: 15px 15px 0 15px;
+  font-size: 22px;
+}
+
+.listDescription {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.newListTitleField {
+  width: 75%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid $secondary-color;
+  outline-color: $secondary-color;
+  background-color: $background-color2;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+  font-family: $font;
+}
+
+.inputCon {
+  display: flex;
+  justify-content: space-evenly;
+}

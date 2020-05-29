@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <div className="nav">
       <NavLink to="/animes" className="logo">
-        Ar
+        <img className="logoImg" src={require("./logo1.png")} alt="logo"></img>
       </NavLink>
       <div onClick={burgerMenuHandler} className="burgerMenu">
         <i className=" fas fa-bars fa-2x"></i>

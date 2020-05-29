@@ -20,9 +20,13 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("/animes")
-      .then((res) => res.json())
-      .then((anime) => this.setState({ anime }));
+    try {
+      fetch("/animes")
+        .then((res) => res.json())
+        .then((anime) => this.setState({ anime }));
+    } catch (error) {
+      console.log(error);
+    }
   }
   render() {
     return (

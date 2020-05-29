@@ -9,11 +9,14 @@
 
 .logo {
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
   color: $secondary-color;
   font-weight: 800;
 }
 
+.logoImg {
+  height: 30px;
+}
 .navItems {
   display: flex;
   margin: 10px;

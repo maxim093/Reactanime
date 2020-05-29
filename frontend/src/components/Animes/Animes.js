@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Anime from "./Anime/Anime";
+import NewList from "../NewList/NewList";
 import "./Animes.scss";
 
 class Animes extends Component {
   render() {
     return (
       <div>
+        <NewList />
         <div className="headingCon">
           <h1 className="heading">
             Meine <span className="colorDecoration">Watchlist</span>
