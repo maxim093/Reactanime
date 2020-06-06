@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   const createBurgerMenuCon = () => {
-    // create dontainer for navigation links on mobile devices
+    // create container for navigation links on mobile devices
     const navBar = document.querySelector(".nav");
     navBar.appendChild(document.createElement("div")).className =
       "burgerMenuCon";
@@ -40,18 +40,15 @@ const Navbar = () => {
 
   return (
     <div className="nav">
-      <NavLink to="/animes" className="logo">
+      <NavLink to="/lists" className="logo">
         <img className="logoImg" src={require("./logo1.png")} alt="logo"></img>
       </NavLink>
       <div onClick={burgerMenuHandler} className="burgerMenu">
         <i className=" fas fa-bars fa-2x"></i>
       </div>
       <ul className="navItems">
-        <NavLink to="/animes" className="navItem" activeClassName="active">
+        <NavLink to="/lists" className="navItem" activeClassName="active">
           Meine Liste
-        </NavLink>
-        <NavLink to="/animes/add" className="navItem" activeClassName="active">
-          Animes hinzufügen
         </NavLink>
         <NavLink to="/information" className="navItem" activeClassName="active">
           Information

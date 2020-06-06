@@ -1,0 +1,63 @@
+@import "../../index.scss";
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.heading {
+  text-align: left;
+  text-decoration: underline;
+  margin-bottom: 0;
+  font-size: 36px;
+}
+.headingCon {
+  padding: 25px 0 25px 30px;
+}
+
+.pageInfo {
+  text-align: left;
+  margin-top: 10px;
+  font-family: $font;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.colorDecoration {
+  color: $secondary-color;
+  text-transform: uppercase;
+}
+
+.listName {
+  text-align: left;
+  font-weight: 600;
+  font-style: italic;
+  margin: 5px;
+}
+
+.animeSearchField {
+  width: 50%;
+  padding: 10px 10px 7px 10px;
+  border-radius: 5px;
+  border: 2px solid $secondary-color;
+  outline-color: $secondary-color;
+  background-color: $background-color2;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+  font-family: $font;
+}
+
+.searchBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid $background-color2;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  background-color: $secondary-color;
+  font-size: 20px;
+  font-family: $font;
+  font-weight: 300;
+  margin: 2px;
+}

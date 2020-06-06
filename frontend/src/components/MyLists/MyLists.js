@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import List from "./List/List";
+import "./MyLists.scss";
 
 class Lists extends Component {
-  state = {};
-
   render() {
     return (
-      <List
-        title={this.props.watchLists.map((list) => (
-          <Link>
+      <div className="listsCon">
+        <h3>Deine Listen:</h3>
+        {this.props.myLists.map((list) => (
+          <Link key={list._id} className="myLists" to={"/lists/" + list._id}>
             <li>{list.title}</li>
           </Link>
         ))}
-      />
+      </div>
     );
   }
 }

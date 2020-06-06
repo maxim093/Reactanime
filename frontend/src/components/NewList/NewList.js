@@ -1,27 +1,14 @@
 import React, { Component } from "react";
-
+import { Route } from "react-router-dom";
 import "./NewList.scss";
-import Lists from "../Lists/Lists";
+import MyLists from "../MyLists/MyLists";
 
 class NewList extends Component {
-  state = {
-    watchLists: [{}],
-  };
-  componentDidMount() {
+  // Save new List for User
+  async saveNewList() {
     try {
-      fetch("/list")
-        .then((res) => res.json())
-        .then((anime) => this.setState({ watchLists: anime }));
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  getValue() {
-    const newListTitle = document.querySelector(".newListTitleField").value;
-
-    try {
-      fetch("/list", {
+      const newListTitle = document.querySelector(".newListTitleField").value;
+      const response = await fetch("/list", {
         method: "POST",
         body: JSON.stringify({
           title: newListTitle,
@@ -29,13 +16,15 @@ class NewList extends Component {
         headers: {
           "Content-Type": "application/json",
         },
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+      });
+      const saved = await response.json();
+      const newListCon = document.querySelector(".newListCon");
+      newListCon.appendChild(document.createTextNode(saved.message));
     } catch (error) {
       console.log(error);
     }
   }
+
   render() {
     return (
       <div className="newListCon">
@@ -45,11 +34,14 @@ class NewList extends Component {
         </div>
         <div className="inputCon">
           <input className="newListTitleField" type="text" name="title" />
-          <button className="submitBtn" onClick={this.getValue}>
+          <button className="submitBtn" onClick={this.saveNewList}>
             <i className="fas fa-plus fa-2x"></i>
           </button>
         </div>
-        <Lists watchLists={this.state.watchLists} />
+        <Route
+          path="/"
+          render={(props) => <MyLists myLists={this.props.myLists} />}
+        />
       </div>
     );
   }

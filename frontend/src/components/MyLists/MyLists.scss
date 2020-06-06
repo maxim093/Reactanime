@@ -1,0 +1,24 @@
+@import "../../index.scss";
+
+.listsCon {
+  margin: 10px;
+  text-align: left;
+}
+
+li {
+  color: $background-color;
+}
+
+li:hover {
+  color: $secondary-color;
+}
+
+.myLists {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.myLists:hover {
+  color: $secondary-color;
+}

@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
 
-const ListSchema = mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const ListSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
-  animeIDs: [
-    {
-      animeID: {
-        type: String,
-      },
-    },
-  ],
+  animeIds: {
+    type: Array,
+  },
   date: {
     //should be date
     type: Date,

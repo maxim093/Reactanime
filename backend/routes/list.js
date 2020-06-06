@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
 
   try {
     const savedList = await list.save();
-    res.json("Speichern erfolgreich!" + savedList);
+    res.json({ message: "Liste gespeichert!" });
   } catch (err) {
     res.json({ message: err });
   }
@@ -26,4 +26,11 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Update current List
+router.put("/:id/:animeId", async (req, res) => {
+  const list = await List.findByIdAndUpdate(
+    { _id: req.params.id },
+    { $push: { animeIds: req.params.animeId } }
+  );
+});
 module.exports = router;

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 
-import Animes from "../src/components/Animes/Animes";
-import AnimeDescription from "./components/AnimeDescription/AnimeDescription";
+import List from "./components/List/List";
 import Navbar from "./components/Layout/Navbar/Navbar";
 import "./App.scss";
+import NewList from "./components/NewList/NewList";
 
 class App extends Component {
   state = {
@@ -17,39 +17,37 @@ class App extends Component {
         release: null,
       },
     ],
+    mylists: [{}],
   };
 
   componentDidMount() {
+    //Get User Lists
+    this.fetchUsersLists();
+  }
+
+  fetchUsersLists() {
     try {
-      fetch("/animes")
+      fetch("/list")
         .then((res) => res.json())
-        .then((anime) => this.setState({ anime }));
+        .then((anime) => this.setState({ mylists: anime }));
     } catch (error) {
       console.log(error);
     }
   }
+
   render() {
     return (
       <div className="App">
         <Navbar />
-        <Redirect from="/" to="/animes" />
-        <Switch>
-          <Route
-            exact
-            path="/animes"
-            render={(props) => <Animes {...props} anime={this.state.anime} />}
-          />
-          <Route
-            exact
-            path="/animes/:_id"
-            render={(props) => (
-              <AnimeDescription {...props} anime={this.state.anime} />
-            )}
-          />
-        </Switch>
+        <NewList myLists={this.state.mylists} />
+        <Route
+          exact
+          path="/lists/:listId"
+          render={(props) => <List {...props} />}
+        />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
