@@ -49,3 +49,19 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+@media (min-width: 900px) {
+  .newListCon {
+    width: 75%;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .newListCon {
+    width: 60%;
+    text-align: center;
+    display: inline-block;
+  }
+}

@@ -13,7 +13,7 @@
   font-size: 36px;
 }
 .headingCon {
-  padding: 25px 0 25px 30px;
+  padding: 55px 0 35px 30px;
 }
 
 .pageInfo {
@@ -38,6 +38,7 @@
 
 .animeSearchField {
   width: 50%;
+  margin-top: 20px;
   padding: 10px 10px 7px 10px;
   border-radius: 5px;
   border: 2px solid $secondary-color;
@@ -60,4 +61,12 @@
   font-family: $font;
   font-weight: 300;
   margin: 2px;
+}
+
+@media (min-width: 900px) {
+  .headingCon {
+    width: 90%;
+    display: inline-block;
+    text-align: center;
+  }
 }

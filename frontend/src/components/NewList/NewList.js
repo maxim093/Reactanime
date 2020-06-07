@@ -28,7 +28,7 @@ class NewList extends Component {
   render() {
     return (
       <div className="newListCon">
-        <div className="listHeading">Noch ne Liste gefällig?</div>
+        <div className="listHeading">WatchList gefällig?</div>
         <div className="listDescription">
           Dann bist du <span className="colorDecoration">hier</span> richtig!
         </div>

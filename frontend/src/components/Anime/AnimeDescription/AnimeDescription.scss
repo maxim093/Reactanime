@@ -29,7 +29,7 @@
 }
 
 .Cover {
-  width: 50%;
+  width: 35%;
 }
 
 .buttonCon {
@@ -55,4 +55,10 @@
 
 .backButton:hover {
   background-color: rgba($secondary-color, 0.6);
+}
+
+@media (min-width: 900px) {
+  .descriptionWrapper {
+    width: 80%;
+  }
 }

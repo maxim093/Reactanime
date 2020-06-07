@@ -50,7 +50,7 @@ class List extends Component {
     }
   }
 
-  // Function for fetching Animedata by a certain name
+  // Fetch Animedata by a certain name
   // currently only 20 Animes
   searchForAnimes = () => {
     this.setState({ searchedForNewAnimes: true });
