@@ -13,7 +13,6 @@ const Navbar = () => {
   const removeBurgerMenuCon = () => {
     // delete container for navigation links on mobile devices
     const burgerMenuCon = document.querySelector(".burgerMenuCon");
-    console.log(burgerMenuCon);
     burgerMenuCon.remove();
     show = false;
   };
@@ -47,10 +46,20 @@ const Navbar = () => {
         <i className=" fas fa-bars fa-2x"></i>
       </div>
       <ul className="navItems">
-        <NavLink to="/lists" className="navItem" activeClassName="active">
+        <NavLink
+          to="/lists"
+          className="navItem"
+          id="navItem1"
+          activeClassName="active"
+        >
           Meine Liste
         </NavLink>
-        <NavLink to="/information" className="navItem" activeClassName="active">
+        <NavLink
+          to="/information"
+          className="navItem"
+          id="navItem2"
+          activeClassName="active"
+        >
           Information
         </NavLink>
       </ul>

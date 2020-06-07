@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
+import AnimeDescription from "./AnimeDescription/AnimeDescription";
 import "./Anime.scss";
 
 class anime extends Component {
   state = {
     animes: {},
+    showDescription: false,
+    choosenAnime: null,
   };
 
   // Update current List with choosen Anime
@@ -21,6 +25,8 @@ class anime extends Component {
         this.props.history.push(path);
         alert("Liste aktualisiert!");
       } else {
+        this.setState({ choosenAnime: id });
+        this.setState({ showDescription: true });
         return;
       }
     } catch (error) {
@@ -28,26 +34,31 @@ class anime extends Component {
     }
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <React.Fragment>
-        {this.props.animes.data.map((e) => (
-          <div
-            key={e.id}
-            className="animeContainer"
-            onClick={() => this.saveAnimeToCurrentList(e.id)}
-            style={{
-              backgroundImage: `url(${e.attributes.posterImage.original})`,
-            }}
-          >
-            <h2 className="title">{e.attributes.canonicalTitle}</h2>
-          </div>
-        ))}
+        {this.state.showDescription ? (
+          <AnimeDescription
+            {...this.props}
+            choosenAnime={this.state.choosenAnime}
+          />
+        ) : (
+          this.props.animes.data.map((e) => (
+            <div
+              key={e.id}
+              className="animeContainer"
+              onClick={() => this.saveAnimeToCurrentList(e.id)}
+              style={{
+                backgroundImage: `url(${e.attributes.posterImage.original})`,
+              }}
+            >
+              <h2 className="title">{e.attributes.canonicalTitle}</h2>
+            </div>
+          ))
+        )}
       </React.Fragment>
     );
   }
 }
 
-export default anime;
+export default withRouter(anime);

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import "./List.scss";
 import Anime from "../Anime/Anime";
 
@@ -34,12 +35,13 @@ class List extends Component {
   // Get data from Kitsu Api----------------------------------------------
   // It takes Id/Ids that are saved in the currently selected list
   // and with the given ids pull the data, for example title/thumbnail, from Kitsu Api
+  // currently only 20 Animes
   fetchAnimesById() {
     try {
       fetch(
         `https://kitsu.io/api/edge/anime?filter[id]=${this.state.currentList.animeIds.join(
           ","
-        )}`
+        )}&page[limit]=20`
       )
         .then((res) => res.json())
         .then((data) => this.setState({ listedAnimes: data }));
@@ -49,12 +51,15 @@ class List extends Component {
   }
 
   // Function for fetching Animedata by a certain name
+  // currently only 20 Animes
   searchForAnimes = () => {
     this.setState({ searchedForNewAnimes: true });
     const value = document.querySelector(".animeSearchField").value;
 
     try {
-      fetch(`https://kitsu.io/api/edge//anime?filter[text]=${value}`)
+      fetch(
+        `https://kitsu.io/api/edge//anime?filter[text]=${value}&page[limit]=20`
+      )
         .then((res) => res.json())
         .then((data) => this.setState({ searchedAnimes: data }));
     } catch (error) {
@@ -80,6 +85,17 @@ class List extends Component {
             Meine <span className="colorDecoration">Watchlist</span>
           </h1>
           <p className="listName">{this.state.currentList.title}</p>
+
+          {this.state.searchedForNewAnimes === true ? (
+            <p className="pageInfo">
+              Hier kannst du deiner Watchlist neue Animes hinzufügen
+            </p>
+          ) : (
+            <p className="pageInfo">
+              Hier kannst du deine aktuelle Watchlist ansehen oder nach neuen
+              Animes suchen
+            </p>
+          )}
           <input
             className="animeSearchField"
             type="text"
@@ -88,15 +104,6 @@ class List extends Component {
           <button onClick={this.searchForAnimes} className="searchBtn">
             Suchen
           </button>
-          {this.state.searchedForNewAnimes === true ? (
-            <p className="pageInfo">
-              Hier kannst du deiner Watchlist neue Animes hinzufügen
-            </p>
-          ) : (
-            <p className="pageInfo">
-              Hier kannst du deine aktuelle Watchlist ansehen
-            </p>
-          )}
         </div>
         <div className="wrapper">
           {this.state.listedAnimes.data !== undefined &&

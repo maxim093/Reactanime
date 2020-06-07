@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@import "../../../index.scss";
 
 .titleText {
   text-decoration: underline;
@@ -20,14 +20,15 @@
 }
 
 .descriptionWrapper {
-  border: 1px solid #000;
-  width: 80%;
+  border: 1.5px solid #000;
+  border-radius: 5px;
+  width: 95%;
   margin: 0 auto;
   margin-top: 25px;
+  box-shadow: 0 1.5em 2em -1em #999;
 }
 
 .Cover {
-  padding: 10px;
   width: 50%;
 }
 
@@ -39,8 +40,8 @@
 .backButton {
   width: 150px;
   height: 45px;
-  margin: 20px;
-  border-radius: 50px;
+  margin: 10px;
+  border-radius: 5px;
   border: 2px solid $tertiary-color;
   font-size: 16px;
   font-family: $font;
@@ -48,12 +49,10 @@
   color: $text-color;
   text-shadow: #000 1px 1px 3px;
   background-color: $secondary-color;
-  transition: 0.9s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: 0.3s;
   cursor: pointer;
 }
 
 .backButton:hover {
-  width: 160px;
-  height: 60x;
-  border-radius: 200px 30px 30px 30px;
+  background-color: rgba($secondary-color, 0.6);
 }

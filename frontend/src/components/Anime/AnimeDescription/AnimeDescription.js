@@ -1,46 +1,56 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 import "./AnimeDescription.scss";
 
 class animeDescription extends Component {
   state = {
-    selectedAnime: [
-      {
-        _id: null,
-        title: null,
-        thumbnail: null,
-        description: null,
-        release: null,
-      },
-    ],
+    animeDescription: {},
   };
+
   componentDidMount() {
-    const selectedAnime = this.props.anime.find(
-      (x) => x._id === this.props.match.params._id
+    const findChoosenAnime = this.props.animes.data.find(
+      (e) => e.id === this.props.choosenAnime
     );
-    this.setState({ selectedAnime: selectedAnime });
+
+    this.setState({
+      animeDescription: findChoosenAnime,
+    });
   }
 
   render() {
     return (
       <React.Fragment>
-        <div className="buttonCon">
-          <button onClick={this.props.history.goBack} className="backButton">
-            Hier gehts Zurück
-          </button>
-        </div>
         <div className="descriptionWrapper">
+          <div className="buttonCon">
+            <button onClick={this.props.history.goBack} className="backButton">
+              Hier gehts Zurück
+            </button>
+          </div>
           <img
             className="Cover"
-            src={this.state.selectedAnime.thumbnail}
+            src={
+              this.state.animeDescription.attributes
+                ? this.state.animeDescription.attributes.posterImage.original
+                : null
+            }
             alt="animeCover"
           ></img>
-          <h2 className="titleText">{this.state.selectedAnime.title} </h2>
+          <h2 className="titleText">
+            {this.state.animeDescription.attributes
+              ? this.state.animeDescription.attributes.canonicalTitle
+              : null}
+          </h2>
           <span className="releaseText">
-            {this.state.selectedAnime.release}
+            {this.state.animeDescription.attributes
+              ? this.state.animeDescription.attributes.startDate
+              : null}
           </span>
           <p className="descriptionText">
-            {this.state.selectedAnime.description}
+            {" "}
+            {this.state.animeDescription.attributes
+              ? this.state.animeDescription.attributes.synopsis
+              : null}
           </p>
         </div>
         <div></div>
@@ -49,4 +59,4 @@ class animeDescription extends Component {
   }
 }
 
-export default animeDescription;
+export default withRouter(animeDescription);
